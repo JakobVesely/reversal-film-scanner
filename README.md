@@ -1,7 +1,7 @@
 # reversal-film-scanner
-A Simple Arduino Aoolication for a self-made reversal film scanner
+A Simple Arduino Application for a self-made automized reversal film scanner
 
-## Hardware
+## Hardware Komponenten
 
 ### Auslöser für Kamera (für Fujifilm NX 100F)
 
@@ -18,3 +18,7 @@ A Simple Arduino Aoolication for a self-made reversal film scanner
 ### Libraries
 
 Adafruit SSD1306: https://github.com/adafruit/Adafruit_SSD1306
+
+## Kodak P-Com Protocol (RS232)
+
+PDF-Manual: https://resources.kodak.com/support/pdf/en/manuals/slideProj/ektapro_PcomProtocol.pdf
