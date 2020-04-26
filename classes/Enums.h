@@ -1,0 +1,13 @@
+enum Enviroment {
+	DEVELOPMENT,
+	PRODUCTION
+};
+
+enum ScannerStatus { 
+	STANDBY,
+	PREPARE_RUN,
+	READY_TO_START_RUN,
+	EXECUTE_RUN,
+	FINISHED_RUN,
+	CANCELED_RUN
+};
