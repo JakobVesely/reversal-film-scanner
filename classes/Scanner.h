@@ -1,8 +1,8 @@
 class Scanner
 {
   private:
-    int safeTimeBeforeShot = 2000; // Time before Shot - Time for the camera to adjust lightning
-    int safeTimeAfterShot = 500;
+    int safeTimeBeforeShot = 5000; // Time before Shot - Time for the camera to adjust lightning
+    int safeTimeAfterShot = 1000;
     
   public:
     int magazineLength = 0;
@@ -25,6 +25,7 @@ class Scanner
       this->lcd->displayMessage("Prepare");
       this->status = PREPARE_RUN;
       cam.focus();
+      projector.turnOn();
       projector.resetSystem();
       this->lcd->displayMessage("Ready");
       this->status = READY_TO_START_RUN;
@@ -34,6 +35,10 @@ class Scanner
     {
       this->lcd->displayMessage("Start Run");
       this->status = EXECUTE_RUN;
+
+      // First Dia in Place
+      projector.slideForward();
+      delay(this->safeTimeBeforeShot);
 
       for (int i = 0 ; i < this->magazineLength ; i++)
       {
@@ -50,6 +55,7 @@ class Scanner
           Logger::debug("Rund Finished");
           this->lcd->displayMessage("Fertig!");
           this->status = FINISHED_RUN;
+          projector.turnOff();
         }
 
         // Cancel ?
@@ -63,9 +69,10 @@ class Scanner
 
     void cancelRun()
     {
+      projector.resetSystem();
+      projector.turnOff();
       this->status = CANCELED_RUN;
       this->lcd->displayMessage("Canceled");
-      delay(1000);
     }
 
     void resetRun()
