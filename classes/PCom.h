@@ -26,10 +26,25 @@ class PCom
 
 	public:
 
+		void turnOn()
+		{
+			Logger::debug("Projector - Turn On (Out of Standby)");
+			this->sendCommandBytes(ModeSetReset, 0x1C);
+      		delay(3000);
+		}
+
+		void turnOff()
+		{
+			Logger::debug("Projector - Turn Off (Go in Standby)");
+			this->sendCommandBytes(ModeSetReset, 0x1E);
+      		delay(2000);
+		}
+
 		void resetSystem()
 		{
 			Logger::debug("Projector - Reset System");
 			this->sendCommandBytes(ModeDirect, 0x2C);
+      		delay(5000);
 		}
 
 		void slideForward()
