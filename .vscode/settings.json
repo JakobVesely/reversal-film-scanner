@@ -3,6 +3,9 @@
 		"cstddef": "cpp",
 		"bitset": "cpp",
 		"string": "cpp",
-		"iosfwd": "cpp"
+		"iosfwd": "cpp",
+		"algorithm": "cpp",
+		"memory": "cpp",
+		"optional": "cpp"
 	}
 }
